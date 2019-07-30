@@ -1,5 +1,5 @@
 // Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -13,8 +13,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -25,7 +25,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -57,3 +57,79 @@ html, body {
     height: 100%;
 }
 
+/* Colors */
+@resume-grey: #373737;
+@light-grey: #A1A1A1;
+
+/* Fonts */
+@OpenSans: 'Open Sans', sans-serif;
+@Ubuntu: 'Ubuntu', sans-serif;
+@Slab: 'Noto Sans', sans-serif;
+
+/* Mixins */
+.smallItalics(){
+	font-size: .7em;
+	font-style: italic;
+	color: @light-grey;
+	font-family: @Ubuntu;
+}
+
+
+/* Global CSS */
+
+h1 {
+	color: black;
+	font-size: 2rem;
+	font-family: @OpenSans;
+	margin-bottom: .5rem;
+}
+
+#container {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+
+	#leftContainer {
+		background-color: @resume-grey;
+		width: 35%;
+		height: 100vh;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: stretch;
+		color: white;
+
+			img {
+				max-width: 85%;
+				flex-shrink: 0;
+				margin: 10% auto 5% auto;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+
+			section {
+				width: 85%;
+				flex-shrink: 0;
+				margin: 0 auto;
+			}
+
+			p {
+			}
+	}
+
+	#rightContainer {
+		display: flex;
+		flex-flow: row wrap;
+		width: 63%;
+		margin-right: 2%;
+
+			header {
+				display: flex;
+				flex-flow: column wrap;
+			}
+
+			section {
+				display: flex;
+				flex-flow: column wrap;
+			}
+		}
+	}
