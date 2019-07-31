@@ -59,19 +59,41 @@ html, body {
 
 /* Colors */
 @resume-grey: #373737;
+@resume-hover: #5C5C5C;
 @light-grey: #A1A1A1;
 
 /* Fonts */
-@OpenSans: 'Open Sans', sans-serif;
+@import 'less/fontawesome.less';
+@import 'less/solid.less';
+@import 'less/regular.less';
+
 @Ubuntu: 'Ubuntu', sans-serif;
-@Slab: 'Noto Sans', sans-serif;
+@OpenSans: 'Open Sans', sans-serif;
+@Roboto: 'Roboto Condensed', sans-serif;
+@Quicksand: 'Quicksand', sans-serif;
+@Wireone: 'Wire One', sans-serif;
 
 /* Mixins */
 .smallItalics(){
-	font-size: .7em;
+	font-size: .7rem;
 	font-style: italic;
 	color: @light-grey;
 	font-family: @Ubuntu;
+}
+
+.allCaps(){
+	text-transform: uppercase;
+	margin-bottom: .5rem;
+}
+
+.bottomMargin(){
+	margin-bottom: 5%;
+}
+
+.sectionMargins(){
+	margin-bottom: 4%;
+	margin-left: 2%;
+	padding-bottom: 2%;
 }
 
 
@@ -84,18 +106,28 @@ h1 {
 	margin-bottom: .5rem;
 }
 
+.imageBorder {
+	width: 90%;
+	color: white;
+	.bottomMargin();
+}
+
 #container {
 	display: flex;
-	flex-flow: row nowrap;
-	align-items: flex-start;
+	height: 100%;
+	min-height: 100%;
+	flex-direction: row;
+	background: yellow;
 
 	#leftContainer {
 		background-color: @resume-grey;
+		font-family: @Roboto;
+		order: 1;
 		width: 35%;
+		position: fixed;
 		height: 100vh;
 		display: flex;
-		flex-flow: column nowrap;
-		align-items: stretch;
+		flex-flow: column;
 		color: white;
 
 			img {
@@ -107,29 +139,127 @@ h1 {
 			}
 
 			section {
-				width: 85%;
+				display: flex;
+				flex-direction: column;
+				width: 80%;
+				font-size: 100%;
 				flex-shrink: 0;
 				margin: 0 auto;
+
+				h1 {
+					color: white;
+					font-family: @Roboto;
+					font-size: 1.5rem;
+					text-align: center;
+					.allCaps();
+					.bottomMargin()
+				}
+
+				p {
+					.bottomMargin();
+					border: 1px solid white;
+					background-color: @resume-grey;
+					transition: background-color .3s ease;
+
+						i {
+							padding: 5%;
+							margin-right: 5%;
+							border: 1px solid grey;
+						}
+				}
+
+				p:hover {
+					background-color: @resume-hover;
+				}
+
+				i {
+					margin: 2%;
+				}
 			}
 
-			p {
+			a {
+				color: white;
+				text-decoration: none;
 			}
-	}
+
+			a:hover {
+			}
+		}
 
 	#rightContainer {
 		display: flex;
-		flex-flow: row wrap;
+		background-color: white;
+		flex-flow: column;
+		order: 2;
 		width: 63%;
+		height: 100%;
+		margin-left: 35%;
 		margin-right: 2%;
 
-			header {
-				display: flex;
-				flex-flow: column wrap;
+			p {
+				font-family: @OpenSans;
+				font-size: .8rem;
+				line-height: 1rem;
 			}
 
-			section {
-				display: flex;
-				flex-flow: column wrap;
-			}
-		}
-	}
+			.topHeading {
+				border-bottom: 1px solid black;
+				width: 100%;
+				.sectionMargins();
+
+				 h1 {
+						font-size: 5rem;
+						font-family: @Wireone;
+					}
+
+					h3 {
+						font-size: 1.5rem;
+						font-family: @Wireone;
+					}
+
+				}
+
+				section {
+					display: flex;
+					flex-flow: column wrap;
+					.sectionMargins();
+					border-bottom: .05rem solid black;
+
+						.sectionHeader {
+							justify-content: flex-start;
+							width: 100%;
+							padding-bottom: 2%;
+							border-bottom: .05rem dashed @light-grey;
+
+								h1 {
+									text-transform: uppercase;
+									font-size: 1.5rem;
+								}
+						}
+
+						.sectionDescription {
+							padding: 2%;
+							display: flex;
+							flex-direction: column;
+
+								h2 {
+									font-family: @Roboto;
+									margin-bottom: 1.5%;
+								}
+
+								h3 {
+									font-family: @Roboto;
+									font-size: .8rem;
+									font-style: italic;
+									margin-bottom: 1.25%;
+								}
+
+								p {
+									font-family: @Roboto;
+									line-height: 1.25rem;
+
+								}
+							}
+						}
+					}
+				}
