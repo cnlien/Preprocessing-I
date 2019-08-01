@@ -114,18 +114,13 @@ h1 {
 
 #container {
 	display: flex;
-	height: 100%;
-	min-height: 100%;
 	flex-direction: row;
-	background: yellow;
 
 	#leftContainer {
 		background-color: @resume-grey;
 		font-family: @Roboto;
 		order: 1;
 		width: 35%;
-		position: fixed;
-		height: 100vh;
 		display: flex;
 		flex-flow: column;
 		color: white;
@@ -138,7 +133,7 @@ h1 {
 				overflow: hidden;
 			}
 
-			section {
+			section, nav {
 				display: flex;
 				flex-direction: column;
 				width: 80%;
@@ -184,7 +179,7 @@ h1 {
 
 			a:hover {
 			}
-		}
+	}
 
 	#rightContainer {
 		display: flex;
@@ -192,9 +187,7 @@ h1 {
 		flex-flow: column;
 		order: 2;
 		width: 63%;
-		height: 100%;
-		margin-left: 35%;
-		margin-right: 2%;
+		margin: 2%;
 
 			p {
 				font-family: @OpenSans;
@@ -202,7 +195,7 @@ h1 {
 				line-height: 1rem;
 			}
 
-			.topHeading {
+			header.topHeading {
 				border-bottom: 1px solid black;
 				width: 100%;
 				.sectionMargins();
@@ -219,47 +212,95 @@ h1 {
 
 				}
 
-				section {
+		.summary {
+			display: flex;
+			flex-direction: column;
+			.sectionMargins();
+
+				.sectionHeader {
+					justify-content: flex-start;
+					width: 100%;
+					padding-bottom: 2%;
+					border-bottom: .05rem dashed @light-grey;
+
+						h1 {
+							text-transform: uppercase;
+							font-size: 1.5rem;
+						}
+				}
+
+				.sectionDescription {
+					padding: 2%;
 					display: flex;
-					flex-flow: column wrap;
-					.sectionMargins();
-					border-bottom: .05rem solid black;
+					flex-direction: column;
 
-						.sectionHeader {
-							justify-content: flex-start;
-							width: 100%;
-							padding-bottom: 2%;
-							border-bottom: .05rem dashed @light-grey;
-
-								h1 {
-									text-transform: uppercase;
-									font-size: 1.5rem;
-								}
+						h2 {
+							font-family: @Roboto;
+							margin-bottom: 1.5%;
 						}
 
-						.sectionDescription {
-							padding: 2%;
-							display: flex;
-							flex-direction: column;
+						h3 {
+							font-family: @Roboto;
+							font-size: .8rem;
+							font-style: italic;
+							margin-bottom: 1.25%;
+						}
 
-								h2 {
-									font-family: @Roboto;
-									margin-bottom: 1.5%;
-								}
-
-								h3 {
-									font-family: @Roboto;
-									font-size: .8rem;
-									font-style: italic;
-									margin-bottom: 1.25%;
-								}
-
-								p {
-									font-family: @Roboto;
-									line-height: 1.25rem;
-
-								}
-							}
+						p {
+							font-family: @Roboto;
+							line-height: 1.25rem;
 						}
 					}
-				}
+		}
+			.skills {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: flex-start;
+				align-content: flex-start;
+
+				.skillset{
+					width: 25%;
+					margin: 2.5%;
+					max-width: 7rem;
+					flex-shrink: 1;
+					text-align: center;
+
+						h3 {
+							font-family: @OpenSans;
+							font-size: .8rem;
+							margin-bottom: .5rem;
+						}
+
+						h4 {
+							font-size: .7rem;
+						}
+					}
+			}
+
+
+		}
+}
+
+@media (max-width:500px) {
+	#container {
+		flex-direction: column;
+
+		#leftContainer {
+			width: 100%;
+		}
+
+		#rightContainer {
+			width: 100%;
+		}
+	}
+}
+
+footer{
+	width: 100%;
+	background: black;
+
+		p {
+			color: white;
+			padding: 2%;
+		}
+}

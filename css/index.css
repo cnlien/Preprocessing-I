@@ -4535,18 +4535,13 @@ h1 {
 }
 #container {
   display: flex;
-  height: 100%;
-  min-height: 100%;
   flex-direction: row;
-  background: yellow;
 }
 #container #leftContainer {
   background-color: #373737;
   font-family: 'Roboto Condensed', sans-serif;
   order: 1;
   width: 35%;
-  position: fixed;
-  height: 100vh;
   display: flex;
   flex-flow: column;
   color: white;
@@ -4558,7 +4553,8 @@ h1 {
   border-radius: 50%;
   overflow: hidden;
 }
-#container #leftContainer section {
+#container #leftContainer section,
+#container #leftContainer nav {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -4566,7 +4562,8 @@ h1 {
   flex-shrink: 0;
   margin: 0 auto;
 }
-#container #leftContainer section h1 {
+#container #leftContainer section h1,
+#container #leftContainer nav h1 {
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.5rem;
@@ -4575,21 +4572,25 @@ h1 {
   margin-bottom: 0.5rem;
   margin-bottom: 5%;
 }
-#container #leftContainer section p {
+#container #leftContainer section p,
+#container #leftContainer nav p {
   margin-bottom: 5%;
   border: 1px solid white;
   background-color: #373737;
   transition: background-color 0.3s ease;
 }
-#container #leftContainer section p i {
+#container #leftContainer section p i,
+#container #leftContainer nav p i {
   padding: 5%;
   margin-right: 5%;
   border: 1px solid grey;
 }
-#container #leftContainer section p:hover {
+#container #leftContainer section p:hover,
+#container #leftContainer nav p:hover {
   background-color: #5C5C5C;
 }
-#container #leftContainer section i {
+#container #leftContainer section i,
+#container #leftContainer nav i {
   margin: 2%;
 }
 #container #leftContainer a {
@@ -4602,64 +4603,101 @@ h1 {
   flex-flow: column;
   order: 2;
   width: 63%;
-  height: 100%;
-  margin-left: 35%;
-  margin-right: 2%;
+  margin: 2%;
 }
 #container #rightContainer p {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.8rem;
   line-height: 1rem;
 }
-#container #rightContainer .topHeading {
+#container #rightContainer header.topHeading {
   border-bottom: 1px solid black;
   width: 100%;
   margin-bottom: 4%;
   margin-left: 2%;
   padding-bottom: 2%;
 }
-#container #rightContainer .topHeading h1 {
+#container #rightContainer header.topHeading h1 {
   font-size: 5rem;
   font-family: 'Wire One', sans-serif;
 }
-#container #rightContainer .topHeading h3 {
+#container #rightContainer header.topHeading h3 {
   font-size: 1.5rem;
   font-family: 'Wire One', sans-serif;
 }
-#container #rightContainer section {
+#container #rightContainer .summary {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   margin-bottom: 4%;
   margin-left: 2%;
   padding-bottom: 2%;
-  border-bottom: 0.05rem solid black;
 }
-#container #rightContainer section .sectionHeader {
+#container #rightContainer .summary .sectionHeader {
   justify-content: flex-start;
   width: 100%;
   padding-bottom: 2%;
   border-bottom: 0.05rem dashed #A1A1A1;
 }
-#container #rightContainer section .sectionHeader h1 {
+#container #rightContainer .summary .sectionHeader h1 {
   text-transform: uppercase;
   font-size: 1.5rem;
 }
-#container #rightContainer section .sectionDescription {
+#container #rightContainer .summary .sectionDescription {
   padding: 2%;
   display: flex;
   flex-direction: column;
 }
-#container #rightContainer section .sectionDescription h2 {
+#container #rightContainer .summary .sectionDescription h2 {
   font-family: 'Roboto Condensed', sans-serif;
   margin-bottom: 1.5%;
 }
-#container #rightContainer section .sectionDescription h3 {
+#container #rightContainer .summary .sectionDescription h3 {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.8rem;
   font-style: italic;
   margin-bottom: 1.25%;
 }
-#container #rightContainer section .sectionDescription p {
+#container #rightContainer .summary .sectionDescription p {
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 1.25rem;
+}
+#container #rightContainer .skills {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+#container #rightContainer .skills .skillset {
+  width: 25%;
+  margin: 2.5%;
+  max-width: 7rem;
+  flex-shrink: 1;
+  text-align: center;
+}
+#container #rightContainer .skills .skillset h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+#container #rightContainer .skills .skillset h4 {
+  font-size: 0.7rem;
+}
+@media (max-width: 500px) {
+  #container {
+    flex-direction: column;
+  }
+  #container #leftContainer {
+    width: 100%;
+  }
+  #container #rightContainer {
+    width: 100%;
+  }
+}
+footer {
+  width: 100%;
+  background: black;
+}
+footer p {
+  color: white;
+  padding: 2%;
 }
